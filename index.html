@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to my personal page. Nothing special, just a normal website.">
+    <title>Welcome | My Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Nav --- */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5%;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .logo { font-weight: 700; font-size: 0.95rem; }
+        .logo span { color: #4f46e5; }
+
+        .nav-links { display: flex; list-style: none; gap: 24px; }
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #666;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #1a1a1a; }
+
+        /* --- Hero --- */
+        .hero {
+            text-align: center;
+            padding: 100px 5% 80px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #4f46e5;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            transition: opacity 0.2s;
+        }
+        .hero-btn:hover { opacity: 0.9; }
+
+        /* --- About --- */
+        .about {
+            padding: 80px 5%;
+            background: #fafafa;
+        }
+
+        .about-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .about > .about-inner > p {
+            color: #666;
+            margin-bottom: 48px;
+            font-size: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 28px 20px;
+            text-align: left;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+
+        .card-emoji { font-size: 1.8rem; margin-bottom: 14px; }
+        .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .card p { font-size: 0.875rem; color: #666; line-height: 1.6; }
+
+        /* --- Blog --- */
+        .blog {
+            padding: 80px 5%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .blog > p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .post {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+        .post:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+
+        .post-date {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .post h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+        .post p { font-size: 0.875rem; color: #666; line-height: 1.6; }
+
+        /* --- Contact --- */
+        .contact {
+            padding: 80px 5%;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact > p {
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .contact-form {
+            display: flex;
+            gap: 10px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .contact-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .contact-form input:focus { border-color: #4f46e5; }
+
+        .contact-form button {
+            padding: 12px 24px;
+            background: #4f46e5;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .contact-form button:hover { opacity: 0.9; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 32px 5%;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .contact-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">my<span>page</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Hey, I'm just a regular person online.</h1>
+        <p>Welcome to my corner of the internet. I share thoughts, projects, and things I find interesting. Nothing fancy — just me being me.</p>
+        <a href="#blog" class="hero-btn">Read My Blog</a>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-inner">
+            <h2>A bit about me</h2>
+            <p>I like simple things. Here's what I'm into.</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-emoji">☕</div>
+                    <h3>Coffee</h3>
+                    <p>I drink way too much of it. Probably having one right now as you read this.</p>
+                </div>
+                <div class="card">
+                    <div class="card-emoji">💻</div>
+                    <h3>Tech</h3>
+                    <p>I like tinkering with things. Building stuff. Breaking stuff. Fixing stuff.</p>
+                </div>
+                <div class="card">
+                    <div class="card-emoji">📚</div>
+                    <h3>Reading</h3>
+                    <p>Mostly non-fiction. Sometimes fiction when I want to feel things.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog" id="blog">
+        <h2>Recent posts</h2>
+        <p>Just some thoughts I've written down.</p>
+
+        <div class="post">
+            <p class="post-date">Sep 8, 2026</p>
+            <h3>Why I rebuilt my website (again)</h3>
+            <p>Every few months I get the urge to start fresh. This time I went with something minimal. Feels good.</p>
+        </div>
+        <div class="post">
+            <p class="post-date">Aug 22, 2026</p>
+            <h3>The joy of doing nothing</h3>
+            <p>Sometimes the most productive thing you can do is absolutely nothing. I've been practising.</p>
+        </div>
+        <div class="post">
+            <p class="post-date">Jul 15, 2026</p>
+            <h3>My favorite terminal commands</h3>
+            <p>A short list of commands I use daily that make my life easier. Nothing groundbreaking.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Say hello</h2>
+        <p>Want to chat? Drop your email and I'll get back to you. Eventually.</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ Sent!'; setTimeout(() => { this.querySelector('button').textContent='Send'; this.reset(); }, 2000);">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 mypage. Built with HTML and vibes.</p>
+    </footer>
+
+</body>
+</html>
